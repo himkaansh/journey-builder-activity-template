@@ -66,12 +66,14 @@ define([
     }
 
     function save() {
+        console.log("this has entered activity.js function save");
         var postcardURLValue = $('#postcard-url').val();
         var postcardTextValue = $('#postcard-text').val();
 
         payload['arguments'].execute.inArguments = [{
             "tokens": authTokens,
-            "emailAddress": "{{Contact.Attribute.PostcardJourney.EmailAddress}}"
+            "emailAddress": "{{Contact.Attribute.PostcardJourney.EmailAddress}}",
+            "ContactKey": "{{Contact.Key}}"
         }];
         
         payload['metaData'].isConfigured = true;
